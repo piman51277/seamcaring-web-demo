@@ -1,0 +1,6 @@
+- Upload image
+- Preview of image
+- Create image mask (just make a canvas)
+- Select new size
+- Processing
+- Display & download
