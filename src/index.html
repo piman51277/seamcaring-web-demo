@@ -32,16 +32,63 @@
           </button>
         </div>
         <div class="main-content; border-div" id="main-content">
+
           <div id="file_upload_div">
             <button id="upload-button" onclick="accept_upload()">
               Upload
             </button>
           </div>
+
           <div id="file_uploaded_div">
             <img id="uploaded-image" src="" alt="Uploaded Image" style="width: 20vw;"/>
+            <button id="upload-button" onclick="accept_upload()">
+              I don't want this image, let's try another
+            </button>
+            <button id="upload-button" onclick="go_to_masking_phase()">
+              I like this image, let's continue!
+            </button>
           </div>
+
+
+        <div id="masking_div">
+          
+          <canvas id="masking-canvas">
+            Your browser does not support the HTML5 canvas tag, Please try on a supported browser
+          </canvas>
+          <p>Draw over the areas that you want the seam carving to ignore</p>
+
+            <!--This will just reload the canvas-->
+                    <button id="upload-button" onclick="go_to_masking_phase()">
+                      Let me try again
+                    </button>
+          
+                    <button id="upload-button" onclick="go_to_settings()">
+                      I'm happy with this!
+                    </button>
+          
         </div>
+
+        <div id="settings_div">
+          <p>Choose the number of seams for the seam carving</p>
+
+          <!--Note that max is changed to the image's width - 1 when the settings screen is selected-->
+          <input type="range" id="seam-slider" min="0" max="-1" value="0" oninput="update_seam_slider()">
+
+          <buttons id="upload-button" onclick="submit_image_for_carving()">
+            I'm ready, let's carve!
+          </button>
+
       </div>
+
+      <div id="loading_div">
+        <p>Loading</p>
+      </div>
+
+      <div id="show_image_div">
+        <img id="final-image" src="" alt="Result Image" style="width: 20vw;"/>
+        <button id="upload-button" onclick="restart()">
+          I want to try again
+        </button>
     </div>
 
 </body>
