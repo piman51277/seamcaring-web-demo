@@ -11,9 +11,9 @@
 }
 
 #file_upload_div {
-  visibility: "visible";
+  display: block;
 }
 
 #file_uploaded_div {
-  visibility: "collapse";
+  display: none;
 }

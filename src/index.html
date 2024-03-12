@@ -32,19 +32,18 @@
           </button>
         </div>
         <div class="main-content; border-div" id="main-content">
+          <div id="file_upload_div">
+            <button id="upload-button" onclick="accept_upload()">
+              Upload
+            </button>
+          </div>
+          <div id="file_uploaded_div">
+            <img id="uploaded-image" src="" alt="Uploaded Image" style="width: 20vw;"/>
+          </div>
         </div>
       </div>
     </div>
 
-    <div id="pop-up" class="pop-up">
-      <form id="myForm" method="POST" enctype="multipart/form-data">
-        <p>Upload Image</p>
-        <input type="file" name="image-upload" id="image-upload" accept="image/*">
-        <p>Upload mask, optional</p>
-        <input type="file" name="mask-upload" id="mask-upload" accept="image/*">
-        <button onclick="submit_image_and_mask()">Upload</button>
-      </form>
-    </div>
 </body>
 
 </html>

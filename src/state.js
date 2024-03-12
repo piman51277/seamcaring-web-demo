@@ -36,8 +36,8 @@ function get_div_of_state(state) {
 }
 // Use of this function assumes that prerequisites are have been checked
 export function change_state(new_state) {
-  get_div_of_state(current_state).style.visibility = "collapse";
-  get_div_of_state(new_state).style.display = "visible";
+  get_div_of_state(current_state).style.display = "none";
+  get_div_of_state(new_state).style.display = "block";
   current_state = new_state;
   
 }

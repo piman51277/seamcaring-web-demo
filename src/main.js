@@ -1,8 +1,6 @@
 
 import { STATES, change_state } from './state.js';
 
-change_state(STATES.FileUpload);
-
 let image = null;
 
 function accept_upload() {
@@ -12,6 +10,12 @@ function accept_upload() {
 
     input.onchange = e => { 
         var file = e.target.files[0];
+        
+        let image_element = document.getElementById("uploaded-image");
+
+        image_element.src = URL.createObjectURL(file);
+            
         change_state(STATES.FileUploaded);
     }
 }
+window.accept_upload = accept_upload;
