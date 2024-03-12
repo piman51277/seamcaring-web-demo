@@ -2,17 +2,21 @@
 <html>
   <head>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
 
     <script src="main.js" type="module"></script>
+
   </head>
 
-  <body style="margin-top: 20px; margin-left: 20%; margin-right: 20%">
+  <body id="background">
+    <div class="header">
+      <h1 class="title">Seam Carving</h1>
+      <p class="subtitle">TSA Software Development</h1>
+    </div>
 
+    <div style="margin-top: 20px; margin-left: 20%; margin-right: 20%">
     <div class="centered">
-      <h1>Seam Carving</h1>
-      <p>TSA Software Development 2023-24</p>
-
-      <p>
+      <p class="normal-text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -35,7 +39,7 @@
 
           <div id="file_upload_div">
             <button id="upload-button" onclick="accept_upload()">
-              Upload
+              <p class="text-in-button">Upload</p>
             </button>
           </div>
 
@@ -55,7 +59,7 @@
           <canvas id="masking-canvas">
             Your browser does not support the HTML5 canvas tag, Please try on a supported browser
           </canvas>
-          <p>Draw over the areas that you want the seam carving to ignore</p>
+          <p class="subtitle">Draw over the areas that you want the seam carving to ignore</p>
 
             <!--This will just reload the canvas-->
                     <button id="upload-button" onclick="go_to_masking_phase()">
@@ -74,7 +78,7 @@
           <!--Note that max is changed to the image's width - 1 when the settings screen is selected-->
           <input type="range" id="seam-slider" min="0" max="-1" value="0" oninput="update_seam_slider()">
 
-          <buttons id="upload-button" onclick="submit_image_for_carving()">
+          <button id="upload-button" onclick="submit_image_for_carving()">
             I'm ready, let's carve!
           </button>
 
@@ -90,7 +94,7 @@
           I want to try again
         </button>
     </div>
-
+  </div>
 </body>
 
 </html>

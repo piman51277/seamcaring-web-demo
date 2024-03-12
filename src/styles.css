@@ -1,13 +1,47 @@
-.border-div {
-  border: 3px solid black;
+#background {
+  background-color: #191919;
+}
+
+.header {
   padding: 10px;
+  padding-left: 3%;
+  text-align: left;
+  background: #111111;
+  color: white;
+  font-size: 30px;
+}
+.border-div {
+  border: 3px solid rgb(3, 48, 78);
+  padding: 10px;
+}
+
+.title {
+  font-size: 30px;
+  color: #cad1e6;
+  font-family: 'Inter';
+}
+
+.subtitle {
+  font-size: 10px;
+  color: #cad1e6;
+  font-family: 'Inter';
+}
+
+.normal-text {
+  font-size: 15px;
+  color: #cad1e6;
+  font-family: 'Inter';
+
 }
 #tabs {
   border-radius: 15px 15px 0px 0px;
 }
 
 #upload-button {
-  padding: 5%;
+  padding: 2%;
+  border-radius: 20%;
+  border-width: 5px;
+  background-color: #3f3f3f;
 }
 
 #file_upload_div {
@@ -27,6 +61,22 @@
 #loading_div {
   display: none;
 }
+
 #show_image_div {
   display: none;
 }
+
+.text-in-button {
+  color: white;
+  font-weight: bolder;
+  font-size: 40px;
+  font-family: 'Inter';
+}
+ .vertical-align {
+   display: flex;
+   flex-wrap: wrap;
+ }
+
+
+ 
+
