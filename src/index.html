@@ -1,251 +1,96 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
 
-<head>
-  <title>Seam Carving</title>
+    <script src="main.js" type="module"></script>
+  </head>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=inter" />
-  <script>
-    function popUp() {
-      document.getElementById("pop-up").style.display = "block";
-    }
+  <body style="margin-top: 20px; margin-left: 20%; margin-right: 20%">
 
-    function png_to_arbg_array() {
-      ctx.drawImage(img, 0, 0);
-      var imgData = ctx.getImageData(x, y, width, height).data;
+    <div class="centered">
+      <h1>Seam Carving</h1>
+      <p>TSA Software Development 2023-24</p>
 
-      return imgData;
-    }
-    function submit_image_and_mask() {
-      var form = document.getElementById("myForm");
-      var formData = new FormData(form);
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
 
-      console.log("Function called")
-      if (formData.get("image-upload") == null) {
-        alert("Please upload an image");
-        return;
-      }
-      var img = new Image();
-      img.src = URL.createObjectURL(formData.get("image-upload"));
+      <div class="action-tab">
+        <div class="border-div" id = "tabs">
+          <button onclick="window.location.href='archive/archive.html'">
+            Archive
+          </button>
+          <button onclick="window.location.href='about/about.html'">
+            About
+          </button>
+        </div>
+        <div class="main-content; border-div" id="main-content">
 
-      if (formData.get("mask-upload") == null || formData.get("mask-upload")) {
-        console.log("No mask")
-        var mask = new Array(img.width * img.height).fill(0);
-      }
+          <div id="file_upload_div">
+            <button id="upload-button" onclick="accept_upload()">
+              Upload
+            </button>
+          </div>
 
-      else {
-        console.log("Yes mask")
-        var mask = new Image();
-        mask.src = URL.createObjectURL(formData.get("mask-upload"));
-        if (mask.width <= 0 || mask.height <= 0) {
-          console.log("No mask")
-          var mask = new Array(img.width * img.height).fill(0);
-        }
-        else {
-          if (mask.width != img.width || mask.height != img.height) {
-            alert("Mask and image must be the same size");
-            return;
-          }
-          var ctx = document.createElement("canvas").getContext("2d");
-
-          ctx.drawImage(mask, 0, 0);
-
-          var maskData = ctx.getImageData(0, 0, mask.width, mask.height).data;
-
-          var mask = new Array(img.width * img.height).fill(0);
-
-          for (var i = 0; i < maskData.length; i += 4) {
-            // Is pixel RBG (0,0,0)
-            mask[i / 4] = (maskData[i] + maskData[i + 1] + maskData[i + 2]) == 0 ? 0 : 1;
-          }
-        }
-      }
+          <div id="file_uploaded_div">
+            <img id="uploaded-image" src="" alt="Uploaded Image" style="width: 20vw;"/>
+            <button id="upload-button" onclick="accept_upload()">
+              I don't want this image, let's try another
+            </button>
+            <button id="upload-button" onclick="go_to_masking_phase()">
+              I like this image, let's continue!
+            </button>
+          </div>
 
 
+        <div id="masking_div">
+          
+          <canvas id="masking-canvas">
+            Your browser does not support the HTML5 canvas tag, Please try on a supported browser
+          </canvas>
+          <p>Draw over the areas that you want the seam carving to ignore</p>
 
-      // Send the first four bytes as the width, next four as the height, and the rest as the image data then the mask data
-      const apiUrl = 'http://localhost:5000/api/carve';
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-         // 'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-      };
-      fetch(apiUrl, requestOptions)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          outputElement.textContent = JSON.stringify(data, null, 2);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    }
-  </script>
-  <style>
-    .info-side {
-      height: 100vh;
-      width: 60vw;
-      font-size: 20px;
-      margin: 0px;
-      background-color: rgb(188, 212, 221);
-      text-align: center;
-      color: white;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      vertical-align: middle
-    }
+            <!--This will just reload the canvas-->
+                    <button id="upload-button" onclick="go_to_masking_phase()">
+                      Let me try again
+                    </button>
+          
+                    <button id="upload-button" onclick="go_to_settings()">
+                      I'm happy with this!
+                    </button>
+          
+        </div>
 
-    .extra-side {
-      height: 100vh;
-      width: 40vw;
-      font-size: 20px;
-      margin: 0px;
-      background-color: rgb(212, 233, 228);
-      text-align: center;
-      color: white;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        <div id="settings_div">
+          <p>Choose the number of seams for the seam carving</p>
 
-    #info {
-      width: 100vw;
-      margin: auto;
-      display: table-cell;
-      vertical-align: middle;
-    }
+          <!--Note that max is changed to the image's width - 1 when the settings screen is selected-->
+          <input type="range" id="seam-slider" min="0" max="-1" value="0" oninput="update_seam_slider()">
 
-    .page {
-      display: flex;
-      flex-direction: col;
-      justify-content: center;
-      align-items: center;
-    }
+          <buttons id="upload-button" onclick="submit_image_for_carving()">
+            I'm ready, let's carve!
+          </button>
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 20px;
-      letter-spacing: 4.5px;
-      color: rgb(12, 26, 71);
-      font: 700 40px/1.2 'Inter', sans-serif;
-    }
-
-    p {
-      font: 450 20px/1.6 'Inter', sans-serif;
-      color: rgb(3, 48, 78);
-      letter-spacing: 1px;
-      word-spacing: 25%;
-    }
-
-    .offset {
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-
-    img {
-      max-width: 200%;
-      max-height: 200%;
-      height: auto;
-      width: auto;
-    }
-
-    .pop-up {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border: 3px solid #f1f1f1;
-      background-color: blue;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="page">
-    <div class="info-side">
-      <div id="info">
-        <h1>Seam Carving</h1>
-        <p class="offset">
-          TSA Software Development 2023-24
-        </p>
       </div>
-    </div>
-    <div class="extra-side">
-      <p>aisefbseiobfaewfbaeufbiaefb</p>
-    </div>
-  </div>
-  <div class="page">
-    <div class="info-side">
-      <div id="info">
-        <h1>Seam Carving</h1>
-        <p class="offset">
-          Seam carving is an algorithm for content-aware image resizing, it
-          allows you to resize an image without distorting the important
-          elements in the image. It works by removing the least important
-          pixels in the image, which are usually the pixels with the least
-          energy. The energy of a pixel is a measure of its importance, and it
-          is calculated based on the pixel's color and its neighbors. The
-          algorithm works by finding the least important pixels in the image
-          and removing them, this process is repeated until the image reaches
-          the desired size.
-        </p>
-        <p class="offset">
-          Seam carving can be used to resize images in a way that preserves
-          the important elements in the image, it can be used to resize images
-          for different screen sizes, or to remove unwanted elements from an
-          image. The algorithm can also be used to remove unwanted objects
-          from an image, by removing the seams that contain the unwanted
-          objects.
-        </p>
-        <p>
-          Seam carving is a powerful algorithm that can be used to resize
-          images in a way that preserves the important elements in the image,
-          it can be used to resize images for different screen sizes, or to
-          remove unwanted elements from an image. The algorithm can also be
-          used to remove unwanted objects from an image, by removing the seams
-          that contain the unwanted objects.
-        </p>
+
+      <div id="loading_div">
+        <p>Loading</p>
       </div>
-    </div>
-    <div class="extra-side">
-      <img src="../assets/seam_carving_gif.gif">
-    </div>
-  </div>
-  <div class="page">
-    <div class="info-side">
-      <div id="info">
-        <h1>Seam Carving</h1>
-        <p class="offset">
-          Try it yourself, upload an image and see your image be transformed
-        </p>
-        <!-- Accept an image input -->
-        <button onclick="popUp()">Upload</button>
-        <input type="file" name="file" id="file" accept="image/*">
-      </div>
-      <div class="extra-side">
-        <p>aisefbseiobfaewfbaeufbiaefb</p>
-      </div>
+
+      <div id="show_image_div">
+        <img id="final-image" src="" alt="Result Image" style="width: 20vw;"/>
+        <button id="upload-button" onclick="restart()">
+          I want to try again
+        </button>
     </div>
 
-    <div id="pop-up" class="pop-up">
-      <form id="myForm" method="POST" enctype="multipart/form-data">
-        <p>Upload Image</p>
-        <input type="file" name="image-upload" id="image-upload" accept="image/*">
-        <p>Upload mask, optional</p>
-        <input type="file" name="mask-upload" id="mask-upload" accept="image/*">
-        <button onclick="submit_image_and_mask()">Upload</button>
-      </form>
-    </div>
 </body>
 
 </html>

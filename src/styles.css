@@ -1,0 +1,32 @@
+.border-div {
+  border: 3px solid black;
+  padding: 10px;
+}
+#tabs {
+  border-radius: 15px 15px 0px 0px;
+}
+
+#upload-button {
+  padding: 5%;
+}
+
+#file_upload_div {
+  display: block;
+}
+
+#file_uploaded_div {
+  display: none;
+}
+#masking_div {
+  display: none;
+}
+#settings_div {
+  display: none;
+}
+
+#loading_div {
+  display: none;
+}
+#show_image_div {
+  display: none;
+}
