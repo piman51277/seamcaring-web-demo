@@ -1,6 +1,8 @@
 
 import { STATES, change_state } from './state.js';
-import { image_to_canvas } from './helper.js';
+import { image_to_canvas, image_to_arbg_array } from './helper.js';
+import { getSeamCarvingImage } from './api.js';
+
 let image = null;
 let mask = null;
 function restart() {
@@ -17,6 +19,9 @@ function accept_upload() {
     input.onchange = e => { 
         image = e.target.files[0];
         
+        console.log(
+            //getSeamCarvingImage(0, image.height, image.width, false, image_to_arbg_array(image))
+        )
         let image_element = document.getElementById("uploaded-image");
 
         image_element.src = URL.createObjectURL(image);
@@ -56,3 +61,12 @@ function submit_image_for_carving() {
 }
 
 window.submit_image_for_carving = submit_image_for_carving;
+
+function update_seam_slider() {
+    let slider = document.getElementById("seam-slider");
+    let value = slider.value;
+    let text = document.getElementById("seam-slider-value");
+    text.innerHTML = value;
+}
+
+window.update_seam_slider = update_seam_slider;

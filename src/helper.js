@@ -11,3 +11,15 @@ export function canvas_to_image(canvas) {
     image.src = canvas.toDataURL();
     return image;
 }
+
+// idk if this works
+export function image_to_arbg_array(image) {
+    let canvas = document.createElement('canvas');
+    canvas.width = image.width;
+    canvas.height = image.height;
+    let ctx = canvas.getContext('2d');
+    ctx.drawImage(image, 0, 0);
+    let data = ctx.getImageData(0, 0, image.width, image.height);
+    return new Uint32Array(data.data.buffer);
+
+}

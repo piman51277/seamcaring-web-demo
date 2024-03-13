@@ -8,66 +8,74 @@
 
   </head>
 
-  <body id="background">
+  <body class="background">
     <div class="header">
       <h1 class="title">Seam Carving</h1>
       <p class="subtitle">TSA Software Development</h1>
+      <div style="background-color: black; height: 5px; width: 100%; margin-top: 20px;"></div>
+      </div>
+      
     </div>
 
     <div style="margin-top: 20px; margin-left: 20%; margin-right: 20%">
-    <div class="centered">
+    <flex class="flexbox-vertical">
       <p class="normal-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Seam carving is an algorithm that resizes images by removing the least important pixels.
+        This allows for the image to be resized without losing important details. 
+        Try it below
       </p>
 
       <div class="action-tab">
         <div class="border-div" id = "tabs">
-          <button onclick="window.location.href='archive/archive.html'">
-            Archive
-          </button>
-          <button onclick="window.location.href='about/about.html'">
-            About
-          </button>
+          <flex class="flexbox-circle-things flexbox-circles-thing">
+          <div class="circle filled-in" id="circle-1"></div>
+          <div class="circle not-filled-in" id="circle-2"></div>
+          <div class="circle not-filled-in" id="circle-3"></div>
+          <div class="circle not-filled-in" id="circle-4"></div>
+        </flex>
         </div>
         <div class="main-content; border-div" id="main-content">
 
           <div id="file_upload_div">
-            <button id="upload-button" onclick="accept_upload()">
+            <flex class="flexbox-vertical">
+            <div class="padding"></div>
+            <button id="upload-button" class ="centered"onclick="accept_upload()">
               <p class="text-in-button">Upload</p>
             </button>
+            <div class="padding"></div>
+            </flex>
           </div>
 
-          <div id="file_uploaded_div">
+          <div id="file_uploaded_div"> 
+            <flex class="flexbox-vertical">
+            
             <img id="uploaded-image" src="" alt="Uploaded Image" style="width: 20vw;"/>
+            <div class="padding"></div>
             <button id="upload-button" onclick="accept_upload()">
               I don't want this image, let's try another
             </button>
+            <div class="padding"></div>
             <button id="upload-button" onclick="go_to_masking_phase()">
               I like this image, let's continue!
             </button>
+          </flex>
           </div>
 
 
         <div id="masking_div">
-          
-          <canvas id="masking-canvas">
+          <div class="padding"></div>
+          <canvas id="masking-canvas" style="padding-left: 20px;"">
             Your browser does not support the HTML5 canvas tag, Please try on a supported browser
           </canvas>
           <p class="subtitle">Draw over the areas that you want the seam carving to ignore</p>
 
             <!--This will just reload the canvas-->
-                    <button id="upload-button" onclick="go_to_masking_phase()">
-                      Let me try again
+                    <button id="upload-button" style="padding-left: 20px;" onclick="go_to_masking_phase()">
+                      <p class = "mini-text-in-button">Let me try again</p>
                     </button>
           
                     <button id="upload-button" onclick="go_to_settings()">
-                      I'm happy with this!
+                      <p class = "mini-text-in-button">I'm happy with this</p>
                     </button>
           
         </div>
@@ -76,8 +84,10 @@
           <p>Choose the number of seams for the seam carving</p>
 
           <!--Note that max is changed to the image's width - 1 when the settings screen is selected-->
-          <input type="range" id="seam-slider" min="0" max="-1" value="0" oninput="update_seam_slider()">
-
+          <div>
+            <input type="range" id="seam-slider" min="0" max="-1" value="0" oninput="update_seam_slider()">
+            <p id="seam-slider-value">0</p>
+        </div>
           <button id="upload-button" onclick="submit_image_for_carving()">
             I'm ready, let's carve!
           </button>

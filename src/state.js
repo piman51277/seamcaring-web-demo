@@ -9,10 +9,6 @@ export const STATES = Object.freeze({
 
 export var current_state = STATES.FileUpload;
 
-function set_state(state) {
-  current_state = state;
-}
-
 // Use of this function assumes that prerequisites are have been checked
 function change_main_content_html(html) {
   document.getElementById("main-content").innerHTML = html;
@@ -39,4 +35,23 @@ export function change_state(new_state) {
   get_div_of_state(current_state).style.display = "none";
   get_div_of_state(new_state).style.display = "block";
   current_state = new_state;
+
+  switch (new_state) {
+    case STATES.FileUpload:
+        document.getElementById('circle-1').classList.replace('not-filled-in', 'filled-in');
+        break;
+    case STATES.FileUploaded:
+        break;
+    case STATES.Masking:
+        console.log("Attempt")
+        console.log(document.getElementById('circle-2').classList.replace('not-filled-in', 'filled-in'));
+        break;
+    case STATES.Settings:
+        document.getElementById('circle-3').classList.replace('not-filled-in', 'filled-in');
+        break;
+    case STATES.Loading:
+        document.getElementById('circle-4').classList.replace('not-filled-in', 'filled-in');
+        break;
+
+  }
 }
