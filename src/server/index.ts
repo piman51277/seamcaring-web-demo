@@ -14,8 +14,15 @@ nunjucks.configure("views", {
   express: app,
 });
 
+//set CORS to allow all
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 //add static assets
-const oneWeek = 604800000;
+//FIXME: This is debug!!!
+const oneWeek = 6; //604800000;
 app.use("/assets", express.static("assets", { maxAge: oneWeek }));
 
 //add routes
