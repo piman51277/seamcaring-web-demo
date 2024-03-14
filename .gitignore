@@ -1,2 +1,6 @@
 node_modules
-
+dist/
+static/
+.env
+assets/css/*.css
+assets/css/*.css.map
