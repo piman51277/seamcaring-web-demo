@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 
 //dedicated debug page
 app.get("/test", (req, res) => {
-  res.render("index.njk");
+  res.render("test.njk");
 });
 
 //start server
