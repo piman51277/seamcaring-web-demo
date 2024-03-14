@@ -1,1 +1,0 @@
-- The MarvinJ librbary is bugged, you need to remove the `Posterization` feture by editing the module.
