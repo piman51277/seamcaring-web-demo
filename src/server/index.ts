@@ -29,6 +29,11 @@ app.get("/", (req, res) => {
   res.render("index.njk");
 });
 
+//dedicated debug page
+app.get("/test", (req, res) => {
+  res.render("index.njk");
+});
+
 //start server
 import http from "http";
 
