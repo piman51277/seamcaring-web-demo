@@ -3,6 +3,16 @@ import axios from "axios";
 //FIXME: This is temp!
 const SERVER_URL = "http://127.0.0.1:5000";
 
+/**
+ * Packs a a data packet to be sent to the server
+ *
+ * @param width with of the image
+ * @param height height of the image
+ * @param remove seams to remove
+ * @param pixels pixel data
+ * @param mask mask data. optional
+ * @returns
+ */
 function createPacket(
   width: number,
   height: number,
@@ -48,6 +58,12 @@ type CarverImage = {
   pixels: Uint32Array;
 };
 
+/**
+ * Parses incoming data packet
+ *
+ * @param buf packet data
+ * @returns image object
+ */
 function parsePacket(buf: ArrayBuffer): CarverImage {
   const view = new DataView(buf);
   const width = view.getUint32(0, true);
@@ -66,6 +82,16 @@ function parsePacket(buf: ArrayBuffer): CarverImage {
   };
 }
 
+/**
+ * Sends a request to the backend server to carve the image
+ *
+ * @param width width of the image
+ * @param height height of the image
+ * @param remove seams to remove
+ * @param pixels pixel data
+ * @param mask mask data. optional
+ * @returns
+ */
 export async function carveImage(
   width: number,
   height: number,
