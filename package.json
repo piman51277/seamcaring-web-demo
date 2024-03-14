@@ -17,6 +17,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
+    "marvinj-ts": "^0.2.1",
     "nunjucks": "^3.2.3",
     "sass": "^1.56.0"
   },
