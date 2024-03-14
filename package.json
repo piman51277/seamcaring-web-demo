@@ -15,6 +15,7 @@
   "author": "piman51277, Nik",
   "license": "MIT",
   "dependencies": {
+    "axios": "^1.6.7",
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "marvinj-ts": "^0.2.1",
