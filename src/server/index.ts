@@ -21,8 +21,7 @@ app.use((req, res, next) => {
 });
 
 //add static assets
-//FIXME: This is debug!!!
-const oneWeek = 6; //604800000;
+const oneWeek = 604800000;
 app.use("/assets", express.static("assets", { maxAge: oneWeek }));
 
 //add routes
