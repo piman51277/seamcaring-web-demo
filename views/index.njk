@@ -1,15 +1,135 @@
 <html>
   <head>
     <link rel="stylesheet" href="/assets/css/bundle.css" />
+    <link rel="stylesheet" href="../scss/index.css" />
+    
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Online Seam Carving Tool" />
     <meta name="og:type" content="website" />
     <meta name="og:title" content="Seam Carving Online" />
     <meta name="og:description" content="Online Seam Carving Tool" />
+
+    <script src="nunjucks.js"></script>
     <title>Seam Carving Online</title>
     <script src="/assets/js/bundle.js"></script>
   </head>
-  <body>
-    <h1>Hello World!</h1>
+  <body class="conversion-page">
+    <header>
+      <div>
+        <h1>SEAM CARVING</h1>
+        <div style="align-items: end">
+          <p>Online</p>
+        </div>  
+      </div>
+      <div>
+        <button>abcd</button>
+        <button>abcd</button>
+        <button>abcd</button>
+      </div>
+    </header>
+
+    <div style="padding: 40px;"></div>
+
+    <progress-bar>
+    </progress-bar>
+        <div style="padding: 10px;"></div>
+    <action-box>
+      <button class = "full-size-button">
+        <h1>Upload image here</h1>
+      </button>
+    </action-box>
+    <action-box style="flex-direction: row">
+      <div style="width: 70%; height: 100%; display: flex; align-items:center; justify-content: center">
+        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
+      </div>
+      <div style="width: 30%; height: 100%; background-color: #DBDAE7; border-radius: 0px 20px 20px 00px; display: flex; flex-direction: column; justify-content: space-between; align-items: center">
+        <h1 style="color: #000F14;">
+          Preview
+        </h1> 
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <button class = "blue-button">Retry</button>
+          <button class = "blue-button">Next Step</button>
+          <div style="padding: 10px;"></div>
+        </div>
+      </div>
+    </action-box>
+
+    <action-box style="flex-direction: row">
+      <div style="width: 70%; height: 100%; display: flex; align-items:center; justify-content: center">
+        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
+      </div>
+      <div style="width: 30%; height: 100%; background-color: #DBDAE7; border-radius: 0px 20px 20px 00px; display: flex; flex-direction: column; justify-content: space-between; align-items: center">
+        <div style="display: flex; flex-direction: column">
+          <h1 style="color: #000F14;">
+            Masking
+          </h1> 
+                  <p>Draw on the image to select regions to keep</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <button class = "blue-button">Retry</button>
+          <button class = "blue-button">Next Step</button>
+          <div style="padding: 10px;"></div>
+        </div>
+      </div>
+    </action-box>
+
+    <action-box style="flex-direction: row">
+      <div style="width: 70%; height: 100%; display: flex; align-items:center; justify-content: center">
+        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
+      </div>
+      <div style="width: 30%; height: 100%; background-color: #DBDAE7; border-radius: 0px 20px 20px 00px; display: flex; flex-direction: column; justify-content: space-between; align-items: center">
+        <div style="display: flex; flex-direction: column">
+          <h1 style="color: #000F14;">
+            Resize
+          </h1> 
+          <p>Select target size</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px; align-items: center">
+          <p>TODO: ADD NUMBER HERE</p>
+          <input type="range" min="1" max="100" value="80" class="slider" id="myRange">
+          <button class = "blue-button">Next Step</button>
+          <div style="padding: 10px;"></div>
+        </div>
+      </div>
+    </action-box>
+
+    <action-box style="flex-direction: row">
+      <div style="width: 70%; height: 100%; display: flex; align-items:center; justify-content: center">
+        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
+      </div>
+      <div style="width: 30%; height: 100%; background-color: #DBDAE7; border-radius: 0px 20px 20px 00px; display: flex; flex-direction: column; justify-content: space-between; align-items: center">
+        <div style="display: flex; flex-direction: column">
+          <h1 style="color: #000F14;">
+            Review
+          </h1> 
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px; align-items: center">
+          <button class = "blue-button">Download</button>
+          <button class = "blue-button">Start Over</button>
+          <div style="padding: 10px;"></div>
+        </div>
+      </div>
+    </action-box>
+
+
+
+    <action-box>
+        <h1>Is this the image you want to carve?</h1>
+        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:40%; max-width:40%; border-radius: 10px;" >
+        <div style="padding: 10px;"></div>
+        <div style="display: flex; flex-direction: row; width: 100%; gap: 10px">
+          <div style="padding: 10px;"></div>
+          <button class = "full-size-button" style="padding: 0% 10% 0% 10%""><h1 >Yes</h1></button>
+          <button class = "full-size-button" style="padding: 0% 10% 0% 10%" "><h1>No</h1></button>
+          <div style="padding: 10px;"></div>
+        </div>
+    </action-box>    
+    <action-box>
+
+    </action-box>
+
+    
   </body>
+  
 </html>
