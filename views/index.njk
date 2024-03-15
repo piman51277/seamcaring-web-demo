@@ -1,7 +1,10 @@
+{% import "partials/progBarDot.njk" as pbd %}
+<!---->
+{% import "partials/progBarElement.njk" as pbe %}
+
 <html>
   <head>
     <link rel="stylesheet" href="/assets/css/bundle.css" />
-    <link rel="stylesheet" href="../scss/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Online Seam Carving Tool" />
     <meta name="og:type" content="website" />
@@ -9,161 +12,211 @@
     <meta name="og:description" content="Online Seam Carving Tool" />
     <title>Seam Carving Online</title>
     <script src="/assets/js/bundle.js"></script>
-    <script src="../js/index.js"></script>
   </head>
   <body class="conversion-page">
     <!-- Fix flashing: https://stackoverflow.com/a/57888310 -->
-    <script>0</script>
+    <script>
+      0;
+    </script>
 
-    <header>
-      <div>
-        <img src="../assets/images/logo.png" alt="Seam Carving Online" style="height:100px">  
-      </div>
-      <div>
-        <button>Convert</button>
-        <button>Learn</button>
-        <button>Assets</button>
-      </div>
-    </header>
+    <div class="section-main">
+      <header>
+        <div>
+          <img
+            src="../assets/images/logo.png"
+            alt="Seam Carving Online"
+            style="height: 100px"
+          />
+        </div>
+        <div class="navbar-button-box">
+          <button id="btn-scroll-convert">
+            <p>Convert</p>
+          </button>
+          <button id="btn-scroll-learn">
+            <p>Learn</p>
+          </button>
+          <button id="btn-scroll-credits">
+            <p>Credits</p>
+          </button>
+        </div>
+      </header>
 
-    <div style="padding: 40px;"></div>
+      <div class="app-body">
+        <div class="progress-bar">
+          <div class="steps">
+            <p>Upload</p>
+            <p>Preview</p>
+            <p>Masking</p>
+            <p>Resize</p>
+            <p>Process</p>
+            <p>Download</p>
+          </div>
+          <div class="bar">
+            <!---->
+            {{ pbe.progBarElement("progBar1", "#595FD9") }}
+            <!---->
+            {{ pbe.progBarElement("progBar2", "#DBDAE7") }}
+            <!---->
+            {{ pbe.progBarElement("progBar3", "#DBDAE7") }}
+            <!---->
+            {{ pbe.progBarElement("progBar4", "#DBDAE7") }}
+            <!---->
+            {{ pbe.progBarElement("progBar5", "#DBDAE7") }}
+            <!---->
+            {{ pbd.progBarDot("progBar6", "#DBDAE7") }}
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <progress-bar>
-      <div>
-        <p>Upload</p>
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" fill="#595FD9"/>
-        </svg>
-      </div> 
-      <div>
-        <p>Preview</p>
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" fill="#595FD9"/>
-        </svg>
-      </div>
-      <div>
-        <p>Masking</p>
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" fill="#595FD9"/>
-        </svg>
-      </div>
-      <div>
-        <p>Resize</p>
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" fill="#595FD9"/>
-        </svg>
-      </div>
-      <div>
-        <p>Review</p>
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" fill="#595FD9"/>
-        </svg>
-      </div>
-    </progress-bar>
-
-    <div style="padding: 10px;"></div>
+    <div style="padding: 10px"></div>
 
     <div class="action-box" id="upload">
-      <button class = "full-size-button">
+      <button class="full-size-button">
         <h1>Upload image here</h1>
       </button>
     </div>
-    <div class="action-box" style="visibility: collapse;" id="preview">
-      <div class="options-side" >
-        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
+    <div class="action-box" style="visibility: collapse" id="preview">
+      <div class="options-side">
+        <img
+          src="https://www.w3schools.com/w3images/lights.jpg"
+          alt="Lights"
+          style="max-height: 70%; max-width: 70%; border-radius: 10px"
+        />
       </div>
       <div class="options-side">
-        <h1>
-          Preview
-        </h1> 
+        <h1>Preview</h1>
         <div class="buttons">
-          <button class = "blue-button">Retry</button> 
-          <button class = "blue-button">Next Step</button>
-          <div style="padding: 10px;"></div>
+          <button class="blue-button">Retry</button>
+          <button class="blue-button">Next Step</button>
+          <div style="padding: 10px"></div>
         </div>
       </div>
     </div>
 
-    <div class="action-box" style="flex-direction: row; visibility: collapse;" id="masking">
+    <div
+      class="action-box"
+      style="flex-direction: row; visibility: collapse"
+      id="masking"
+    >
       <div class="options-side">
-        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
+        <img
+          src="https://www.w3schools.com/w3images/lights.jpg"
+          alt="Lights"
+          style="max-height: 70%; max-width: 70%; border-radius: 10px"
+        />
       </div>
       <div class="options-side">
         <div style="display: flex; flex-direction: column">
-          <h1>
-            Masking
-          </h1> 
-                  <p>Draw on the image to select regions to keep</p>
+          <h1>Masking</h1>
+          <p>Draw on the image to select regions to keep</p>
         </div>
         <div class="buttons">
-          <button class = "blue-button">Retry</button>
-          <button class = "blue-button">Next Step</button>
-          <div style="padding: 10px;"></div>
+          <button class="blue-button">Retry</button>
+          <button class="blue-button">Next Step</button>
+          <div style="padding: 10px"></div>
         </div>
       </div>
     </div>
 
-    <div class="action-box" style="flex-direction: row; visibility: collapse;" id="resize">
+    <div
+      class="action-box"
+      style="flex-direction: row; visibility: collapse"
+      id="resize"
+    >
       <div class="options-side">
-        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
+        <img
+          src="https://www.w3schools.com/w3images/lights.jpg"
+          alt="Lights"
+          style="max-height: 70%; max-width: 70%; border-radius: 10px"
+        />
       </div>
       <div class="options-side">
         <div style="display: flex; flex-direction: column">
-          <h1>
-            Resize
-          </h1> 
+          <h1>Resize</h1>
           <p>Select target size</p>
         </div>
         <div class="buttons">
           <p>TODO: ADD NUMBER HERE</p>
-          <input type="range" min="1" max="100" value="80" class="slider" id="carvingPercent">
-          <button class = "blue-button">Next Step</button>
-          <div style="padding: 10px;"></div>
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="80"
+            class="slider"
+            id="carvingPercent"
+          />
+          <button class="blue-button">Next Step</button>
+          <div style="padding: 10px"></div>
         </div>
       </div>
     </div>
 
-
-    <div class="action-box" id="processing" style="visibility: collapse;">
-        <h1>Processing</h1>
+    <div class="action-box" id="processing" style="visibility: collapse">
+      <h1>Processing</h1>
     </div>
 
-    <div class="action-box" style="flex-direction: row; visibility: collapse;" id="review">
+    <div
+      class="action-box"
+      style="flex-direction: row; visibility: collapse"
+      id="review"
+    >
       <div class="options-side">
-        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
+        <img
+          src="https://www.w3schools.com/w3images/lights.jpg"
+          alt="Lights"
+          style="max-height: 70%; max-width: 70%; border-radius: 10px"
+        />
       </div>
       <div class="options-side">
         <div style="display: flex; flex-direction: column">
-          <h1>
-            Review
-          </h1> 
+          <h1>Review</h1>
         </div>
         <div class="buttons">
-          <button class = "blue-button">Download</button>
-          <button class = "blue-button">Start Over</button>
-          <div style="padding: 10px;"></div>
+          <button class="blue-button">Download</button>
+          <button class="blue-button">Start Over</button>
+          <div style="padding: 10px"></div>
         </div>
       </div>
     </div>
-    <div style="padding: 40px;"></div>
-    <hr>
+    <div style="padding: 40px"></div>
+    <hr />
 
-    <div class = "page">
+    <div class="page">
       <h1>What is Seam Carving?</h1>
       <h1>
-        Seam carving is a way to resize images by automatically removing or adding pixels in the least noticeable areas. It works by finding the least important pixel paths (seams) across the image and deleting or inserting pixels along those seams. This allows the image to be made smaller or larger while keeping the important objects and details intact.
+        Seam carving is a way to resize images by automatically removing or
+        adding pixels in the least noticeable areas. It works by finding the
+        least important pixel paths (seams) across the image and deleting or
+        inserting pixels along those seams. This allows the image to be made
+        smaller or larger while keeping the important objects and details
+        intact.
       </h1>
     </div>
 
-    <hr>
+    <hr />
 
-    <div class = "page">
+    <div class="page">
       <h1>Made with ❤️ by</h1>
-      <div style="display:flex; align-items: center; justify-content: center; gap: 20px">
-        <img src="../assets/images/aiden.png" alt="Alex" style="height:100px; border-radius: 10%;">
-        <img src="../assets/images/nikolas.png" alt="Alex" style="height:100px; border-radius: 10%;">
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+        "
+      >
+        <img
+          src="../assets/images/aiden.png"
+          alt="Alex"
+          style="height: 100px; border-radius: 10%"
+        />
+        <img
+          src="../assets/images/nikolas.png"
+          alt="Alex"
+          style="height: 100px; border-radius: 10%"
+        />
       </div>
     </div>
   </body>
-  
 </html>
