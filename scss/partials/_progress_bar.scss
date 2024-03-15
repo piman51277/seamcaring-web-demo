@@ -1,10 +1,23 @@
 progress-bar {
+    display: flex;
+    flex-direction: row;
     width: 80%;
     height: 100px;
     flex-shrink: 0; 
     border-radius: 20px;
     background: #F6F6FB;
     align-items: center;
-    justify-content: center;
-    display: flex;
+    justify-content: space-evenly;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    p {
+        margin: -1px;
+        font-size: 20px;
+    }
 }
