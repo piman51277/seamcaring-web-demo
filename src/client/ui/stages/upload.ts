@@ -1,6 +1,7 @@
 import { ready } from "../../util/ready";
 import { imageUploadHandler } from "../../handlers/imageUploadHandler";
 import { Stage, setStage } from "../setStage";
+import { imInstance } from "../ImageManager";
 
 ready(() => {
   const uploadBtn = document.getElementById("upload-button") as HTMLElement;
@@ -18,8 +19,7 @@ ready(() => {
       return;
     }
 
-    //TODO: make a call to the image state handler to set the image state
-
+    imInstance.setSourceImage(result.image);
     setStage(Stage.PREVIEW);
   });
 });

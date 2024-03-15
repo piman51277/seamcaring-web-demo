@@ -1,5 +1,5 @@
 import { ready } from "../../util/ready";
-import { Stage, setStage } from "../setStage";
+import { imInstance } from "../ImageManager";
 
 const BOX_WIDTH = 860;
 
@@ -23,11 +23,15 @@ ready(() => {
 
     selectDiv.style.width = selectWidth + "px";
     hideDiv.style.width = hideWidth + "px";
+
+    const originalWidth = imInstance.sourceImage.getWidth();
+
+    imInstance.setSeamsToRemove(
+      Math.floor(originalWidth * (1 - percent / 100))
+    );
   });
 
   nextBtn.addEventListener("click", () => {
-    //fire off the processing, which should handle the next few transitions.
-    //FIME: debug goes directly to download
-    setStage(Stage.REVIEW);
+    imInstance.carve();
   });
 });
