@@ -13,7 +13,7 @@
     <title>Seam Carving Online</title>
     <script src="/assets/js/bundle.js"></script>
   </head>
-  <body class="conversion-page">
+  <body>
     <!-- Fix flashing: https://stackoverflow.com/a/57888310 -->
     <script>
       0;
@@ -83,128 +83,15 @@
       </div>
     </div>
 
-    <div
-      class="action-box"
-      style="flex-direction: row; visibility: collapse"
-      id="masking"
-    >
-      <div class="options-side">
-        <img
-          src="https://www.w3schools.com/w3images/lights.jpg"
-          alt="Lights"
-          style="max-height: 70%; max-width: 70%; border-radius: 10px"
-        />
-      </div>
-      <div class="options-side">
-        <div style="display: flex; flex-direction: column">
-          <h1>Masking</h1>
-          <p>Draw on the image to select regions to keep</p>
+    <div class="section-credits">
+      <div class="centerer">
+        <div>
+          <h1>Made with ❤️ by</h1>
+          <div class="profile-flex">
+            <img src="../assets/images/piman.png" alt="piman profile" />
+            <img src="../assets/images/nikolas.png" alt="nikolas profile" />
+          </div>
         </div>
-        <div class="buttons">
-          <button class="blue-button">Retry</button>
-          <button class="blue-button">Next Step</button>
-          <div style="padding: 10px"></div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="action-box"
-      style="flex-direction: row; visibility: collapse"
-      id="resize"
-    >
-      <div class="options-side">
-        <img
-          src="https://www.w3schools.com/w3images/lights.jpg"
-          alt="Lights"
-          style="max-height: 70%; max-width: 70%; border-radius: 10px"
-        />
-      </div>
-      <div class="options-side">
-        <div style="display: flex; flex-direction: column">
-          <h1>Resize</h1>
-          <p>Select target size</p>
-        </div>
-        <div class="buttons">
-          <p>TODO: ADD NUMBER HERE</p>
-          <input
-            type="range"
-            min="1"
-            max="100"
-            value="80"
-            class="slider"
-            id="carvingPercent"
-          />
-          <button class="blue-button">Next Step</button>
-          <div style="padding: 10px"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="action-box" id="processing" style="visibility: collapse">
-      <h1>Processing</h1>
-    </div>
-
-    <div
-      class="action-box"
-      style="flex-direction: row; visibility: collapse"
-      id="review"
-    >
-      <div class="options-side">
-        <img
-          src="https://www.w3schools.com/w3images/lights.jpg"
-          alt="Lights"
-          style="max-height: 70%; max-width: 70%; border-radius: 10px"
-        />
-      </div>
-      <div class="options-side">
-        <div style="display: flex; flex-direction: column">
-          <h1>Review</h1>
-        </div>
-        <div class="buttons">
-          <button class="blue-button">Download</button>
-          <button class="blue-button">Start Over</button>
-          <div style="padding: 10px"></div>
-        </div>
-      </div>
-    </div>
-    <div style="padding: 40px"></div>
-    <hr />
-
-    <div class="page">
-      <h1>What is Seam Carving?</h1>
-      <h1>
-        Seam carving is a way to resize images by automatically removing or
-        adding pixels in the least noticeable areas. It works by finding the
-        least important pixel paths (seams) across the image and deleting or
-        inserting pixels along those seams. This allows the image to be made
-        smaller or larger while keeping the important objects and details
-        intact.
-      </h1>
-    </div>
-
-    <hr />
-
-    <div class="page">
-      <h1>Made with ❤️ by</h1>
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 20px;
-        "
-      >
-        <img
-          src="../assets/images/aiden.png"
-          alt="Alex"
-          style="height: 100px; border-radius: 10%"
-        />
-        <img
-          src="../assets/images/nikolas.png"
-          alt="Alex"
-          style="height: 100px; border-radius: 10%"
-        />
       </div>
     </div>
   </body>

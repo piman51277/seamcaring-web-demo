@@ -121,6 +121,7 @@ input[type="range"]::-webkit-slider-thumb {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+
   .upload-region {
     display: flex;
     height: 80%;
@@ -130,6 +131,16 @@ input[type="range"]::-webkit-slider-thumb {
     align-items: center;
     border-radius: 20px;
     border: 3px dashed #595fd9;
+  }
+
+  h1 {
+    color: #595fd9;
+    text-align: center;
+    font-family: Rubik;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 }
 
