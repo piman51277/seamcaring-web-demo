@@ -79,7 +79,7 @@ progress-bar p {
   font-size: 20px;
 }
 
-action-box {
+.action-box {
   display: flex;
   flex-direction: row;
   width: 70%;
@@ -89,7 +89,7 @@ action-box {
   align-self: center;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #F6F6FB;
+  background: #f6f6fb;
   box-sizing: border-box;
 }
 
@@ -101,7 +101,33 @@ action-box {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  border: 3px dashed #595FD9;
+  border: 3px dashed #595fd9;
+}
+
+.options-side {
+  width: 30%;
+  height: 100%;
+  background-color: #dbdae7;
+  border-radius: 0px 20px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-side {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 h1 {

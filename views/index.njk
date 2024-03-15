@@ -17,15 +17,12 @@
 
     <header>
       <div>
-        <h1>SEAM CARVING</h1>
-        <div style="align-items: end">
-          <p>Online</p>
-        </div>  
+        <img src="../assets/images/logo.png" alt="Seam Carving Online" style="height:100px">  
       </div>
       <div>
-        <button>abcd</button>
-        <button>abcd</button>
-        <button>abcd</button>
+        <button>Convert</button>
+        <button>Learn</button>
+        <button>Assets</button>
       </div>
     </header>
 
@@ -63,89 +60,91 @@
         </svg>
       </div>
     </progress-bar>
-        <div style="padding: 10px;"></div>
-    <action-box id="upload">
+
+    <div style="padding: 10px;"></div>
+
+    <div class="action-box" id="upload">
       <button class = "full-size-button">
         <h1>Upload image here</h1>
       </button>
-    </action-box>
-    <action-box style="flex-direction: row; visibility: collapse;" id="preview">
-      <div style="width: 70%; height: 100%; display: flex; align-items:center; justify-content: center; " >
+    </div>
+    <div class="action-box" style="visibility: collapse;" id="preview">
+      <div class="options-side" >
         <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
       </div>
-      <div style="width: 30%; height: 100%; background-color: #DBDAE7; border-radius: 0px 20px 20px 00px; display: flex; flex-direction: column; justify-content: space-between; align-items: center">
-        <h1 style="color: #000F14;">
+      <div class="options-side">
+        <h1>
           Preview
         </h1> 
-        <div style="display: flex; flex-direction: column; gap: 20px">
+        <div class="buttons">
           <button class = "blue-button">Retry</button> 
           <button class = "blue-button">Next Step</button>
           <div style="padding: 10px;"></div>
         </div>
       </div>
-    </action-box>
+    </div>
 
-    <action-box style="flex-direction: row; visibility: collapse;" id="masking">
-      <div style="width: 70%; height: 100%; display: flex; align-items:center; justify-content: center">
+    <div class="action-box" style="flex-direction: row; visibility: collapse;" id="masking">
+      <div class="options-side">
         <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
       </div>
-      <div style="width: 30%; height: 100%; background-color: #DBDAE7; border-radius: 0px 20px 20px 00px; display: flex; flex-direction: column; justify-content: space-between; align-items: center">
+      <div class="options-side">
         <div style="display: flex; flex-direction: column">
-          <h1 style="color: #000F14;">
+          <h1>
             Masking
           </h1> 
                   <p>Draw on the image to select regions to keep</p>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 20px">
+        <div class="buttons">
           <button class = "blue-button">Retry</button>
           <button class = "blue-button">Next Step</button>
           <div style="padding: 10px;"></div>
         </div>
       </div>
-    </action-box>
+    </div>
 
-    <action-box style="flex-direction: row; visibility: collapse;" id="resize">
-      <div style="width: 70%; height: 100%; display: flex; align-items:center; justify-content: center;">
+    <div class="action-box" style="flex-direction: row; visibility: collapse;" id="resize">
+      <div class="options-side">
         <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
       </div>
-      <div style="width: 30%; height: 100%; background-color: #DBDAE7; border-radius: 0px 20px 20px 00px; display: flex; flex-direction: column; justify-content: space-between; align-items: center">
+      <div class="options-side">
         <div style="display: flex; flex-direction: column">
-          <h1 style="color: #000F14;">
+          <h1>
             Resize
           </h1> 
           <p>Select target size</p>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 20px; align-items: center">
+        <div class="buttons">
           <p>TODO: ADD NUMBER HERE</p>
           <input type="range" min="1" max="100" value="80" class="slider" id="carvingPercent">
           <button class = "blue-button">Next Step</button>
           <div style="padding: 10px;"></div>
         </div>
       </div>
-    </action-box>
+    </div>
 
 
-    <action-box id="processing" style="visibility: collapse;">
+    <div class="action-box" id="processing" style="visibility: collapse;">
         <h1>Processing</h1>
-    </action-box>
+    </div>
 
-    <action-box style="flex-direction: row; visibility: collapse;" id="review">
-      <div style="width: 70%; height: 100%; display: flex; align-items:center; justify-content: center">
+    <div class="action-box" style="flex-direction: row; visibility: collapse;" id="review">
+      <div class="options-side">
         <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="max-height:70%; max-width:70%; border-radius: 10px;" >
       </div>
-      <div style="width: 30%; height: 100%; background-color: #DBDAE7; border-radius: 0px 20px 20px 00px; display: flex; flex-direction: column; justify-content: space-between; align-items: center">
+      <div class="options-side">
         <div style="display: flex; flex-direction: column">
-          <h1 style="color: #000F14;">
+          <h1>
             Review
           </h1> 
         </div>
-        <div style="display: flex; flex-direction: column; gap: 20px; align-items: center">
+        <div class="buttons">
           <button class = "blue-button">Download</button>
           <button class = "blue-button">Start Over</button>
           <div style="padding: 10px;"></div>
         </div>
       </div>
-    </action-box>
+    </div>
     <div style="padding: 40px;"></div>
     <hr>
 
