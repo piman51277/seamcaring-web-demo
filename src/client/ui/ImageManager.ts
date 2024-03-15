@@ -60,7 +60,7 @@ class ImageManager {
       height,
       this.seamsToRemove,
       pixels,
-      null
+      this.mask
     );
 
     const imgData = bufToImage(

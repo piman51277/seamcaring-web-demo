@@ -4,13 +4,16 @@ import { Stage, setStage } from "../setStage";
 import { imInstance } from "../ImageManager";
 
 let masker = new Masker(document.createElement("canvas"), 0, 0, 0);
+let width = 0;
+let height = 0;
+let aspectRatio = width / height;
 
 export function newMasker(): void {
   const canvas = document.getElementById("masking-canvas") as HTMLCanvasElement;
   const img = imInstance.sourceImage;
-  const width = img.getWidth();
-  const height = img.getHeight();
-  const aspectRatio = width / height;
+  width = img.getWidth();
+  height = img.getHeight();
+  aspectRatio = width / height;
 
   masker = new Masker(canvas, 860, 660, aspectRatio);
 }
@@ -21,12 +24,7 @@ ready(() => {
   const canvas = document.getElementById("masking-canvas") as HTMLCanvasElement;
 
   //listen if the classes ae changed
-  const img = imInstance.sourceImage;
-  const width = img.getWidth();
-  const height = img.getHeight();
-  const aspectRatio = width / height;
-
-  masker = new Masker(canvas, 860, 660, aspectRatio);
+  const masker = new Masker(canvas, 860, 660, aspectRatio);
 
   retryBtn.addEventListener("click", () => {
     masker.reset();

@@ -146,22 +146,22 @@ export class Masker {
   export(targetWidth: number, targetHeight: number): Uint8Array {
     const { x, y, width, height } = this.getImgBounds();
 
-    const imgData = this.ctx.getImageData(x, y, width, height);
+    const imgData = this.ctx.getImageData(x, y + 1, width, height);
 
     //convert to marvin image
     const canvasPix = new Uint8ClampedArray(width * height * 4);
     for (let i = 0; i < imgData.data.length; i += 4) {
-      canvasPix[i] = 255;
       //if the alpha is 0, set it to white
-      if (imgData.data[i + 3] === 0) {
+      if (imgData.data[i + 3] < 20) {
+        canvasPix[i] = 255;
         canvasPix[i + 1] = 255;
         canvasPix[i + 2] = 255;
-        canvasPix[i + 3] = 255;
       } else {
+        canvasPix[i] = 0;
         canvasPix[i + 1] = 0;
         canvasPix[i + 2] = 0;
-        canvasPix[i + 3] = 0;
       }
+      canvasPix[i + 3] = 255;
     }
     const smallImg = new MarvinImage(width, height);
     smallImg.data = canvasPix;
