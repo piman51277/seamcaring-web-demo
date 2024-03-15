@@ -9,6 +9,9 @@ import "./ui/stages/masking";
 import "./ui/stages/resize";
 import "./ui/stages/review";
 
+//scrolling
+import "./ui/credits";
+
 ready(() => {
   setStage(Stage.UPLOAD_AWAIT);
 });
