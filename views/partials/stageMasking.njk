@@ -1,18 +1,14 @@
 <div class="action-box image-edit-base norender" id="stage-masking">
   <div class="img-display">
-    <img
-      src="https://www.w3schools.com/w3images/lights.jpg"
-      alt="Lights"
-      style="height: 100%; width: 100%"
-    />
+    <img id="preview-img" />
     <canvas id="masking-canvas"> </canvas>
   </div>
   <div class="options-side">
     <h1>Masking</h1>
     <h3>Draw on the image to select regions to keep</h3>
     <div class="buttons">
-      <button class="blue-button">Retry</button>
-      <button class="blue-button">Next Step</button>
+      <button class="blue-button" id="masking-retry">Retry</button>
+      <button class="blue-button" id="masking-next">Next Step</button>
       <div style="padding: 10px"></div>
     </div>
   </div>

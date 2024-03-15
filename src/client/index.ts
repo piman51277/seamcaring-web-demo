@@ -1,39 +1,14 @@
-import { imageUploadHandler } from "./handlers/imageUploadHandler";
-import { bufToImage } from "./image/bufToImage";
-import { imageToBuf } from "./image/imageToBuf";
-import { carveImage } from "./io/carveImage";
+import { setStage, Stage } from "./ui/setStage";
 import { ready } from "./util/ready";
 
+//stages
+import "./ui/stages/upload";
+import "./ui/stages/uploadReject";
+import "./ui/stages/preview";
+import "./ui/stages/masking";
+import "./ui/stages/resize";
+import "./ui/stages/review";
+
 ready(() => {
-  const inputelement = document.getElementById(
-    "imageupload"
-  ) as HTMLInputElement;
-
-  inputelement.addEventListener("change", async (e) => {
-    const result = await imageUploadHandler(e);
-    if (result.success) {
-      console.log("Image uploaded!");
-
-      const image = result.image;
-
-      const width = image.getWidth();
-      const height = image.getHeight();
-
-      const pixels = imageToBuf(image);
-
-      const carvedImage = await carveImage(width, height, 1000, pixels, null);
-
-      const newImage = bufToImage(
-        carvedImage.width,
-        carvedImage.height,
-        carvedImage.pixels
-      );
-
-      const canvas = document.getElementById("output") as HTMLCanvasElement;
-      canvas.width = newImage.getWidth();
-      canvas.height = newImage.getHeight();
-
-      newImage.draw(canvas, 0, 0, 1);
-    }
-  });
+  setStage(Stage.UPLOAD_AWAIT);
 });
