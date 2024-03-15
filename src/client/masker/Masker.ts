@@ -8,7 +8,7 @@ type ImgBounds = {
 };
 
 /**
- *
+ * Helper for image masking
  */
 export class Masker {
   canvas: HTMLCanvasElement;
