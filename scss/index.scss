@@ -1,15 +1,19 @@
-@import "partials/conversion_page";
+@import "partials/header";
 @import "partials/action-box";
 @import "partials/text-definitions";
-@import "partials/preview";
 @import "partials/info";
 @import "partials/full_page";
 @import "partials/main";
 
-
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Pixelify+Sans&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
-p {
+p,
+h1,
+h3 {
   margin: 0px;
   padding: 0px;
+}
+
+.norender {
+  display: none !important;
 }

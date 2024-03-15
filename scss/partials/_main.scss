@@ -1,47 +1,9 @@
-header {
-  display: flex;
-  justify-content: space-between;
-  width: 100vw;
-  height: 100px;
-  background-color: #f6f6fb;
-
-  // To make the header's size not affected by padding
-  box-sizing: border-box;
-
-  padding: 20px;
-
-  div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-  }
-
-  button {
-    display: inline-flex;
-    height: 80px;
-    padding: 11px 15px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    background: #595fd9;
-
-    p {
-      color: #f6f6fb;
-      text-align: center;
-      font-family: Rubik;
-      font-size: 36px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-    }
-  }
-}
-
 .section-main {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: #595fd9;
+
   .app-body {
     display: flex;
     width: 1300px;
@@ -54,7 +16,7 @@ header {
 
     box-sizing: border-box;
     left: calc(50% - 1300px / 2);
-    top: 180px;
+    top: 8cap;
 
     .progress-bar {
       width: 1300px;

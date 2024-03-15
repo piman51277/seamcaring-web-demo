@@ -66,31 +66,20 @@
             {{ pbd.progBarDot("progBar6", "#DBDAE7") }}
           </div>
         </div>
-      </div>
-    </div>
 
-    <div style="padding: 10px"></div>
-
-    <div class="action-box" id="upload">
-      <button class="full-size-button">
-        <h1>Upload image here</h1>
-      </button>
-    </div>
-    <div class="action-box" style="visibility: collapse" id="preview">
-      <div class="options-side">
-        <img
-          src="https://www.w3schools.com/w3images/lights.jpg"
-          alt="Lights"
-          style="max-height: 70%; max-width: 70%; border-radius: 10px"
-        />
-      </div>
-      <div class="options-side">
-        <h1>Preview</h1>
-        <div class="buttons">
-          <button class="blue-button">Retry</button>
-          <button class="blue-button">Next Step</button>
-          <div style="padding: 10px"></div>
-        </div>
+        {% include "partials/stageUpload.njk" %}
+        <!---->
+        {% include "partials/stageUploadReject.njk" %}
+        <!---->
+        {% include "partials/stagePreview.njk" %}
+        <!---->
+        {% include "partials/stageMasking.njk" %}
+        <!---->
+        {% include "partials/stageResize.njk" %}
+        <!---->
+        {% include "partials/stageProcessing.njk" %}
+        <!---->
+        {% include "partials/stageReview.njk" %}
       </div>
     </div>
 
