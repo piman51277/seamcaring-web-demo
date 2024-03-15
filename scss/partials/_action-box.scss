@@ -25,6 +25,12 @@
     flex-shrink: 0;
     background: #bcbff0;
     position: relative;
+
+    img {
+      width: 860px;
+      height: 660px;
+      object-fit: contain;
+    }
   }
 
   .options-side {
