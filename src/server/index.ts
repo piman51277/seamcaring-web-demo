@@ -14,6 +14,12 @@ nunjucks.configure("views", {
   express: app,
 });
 
+//set CORS to allow all
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 //add static assets
 const oneWeek = 604800000;
 app.use("/assets", express.static("assets", { maxAge: oneWeek }));
@@ -21,6 +27,11 @@ app.use("/assets", express.static("assets", { maxAge: oneWeek }));
 //add routes
 app.get("/", (req, res) => {
   res.render("index.njk");
+});
+
+//dedicated debug page
+app.get("/test", (req, res) => {
+  res.render("test.njk");
 });
 
 //start server
