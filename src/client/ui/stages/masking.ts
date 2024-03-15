@@ -24,7 +24,7 @@ ready(() => {
   const canvas = document.getElementById("masking-canvas") as HTMLCanvasElement;
 
   //listen if the classes ae changed
-  const masker = new Masker(canvas, 860, 660, aspectRatio);
+  masker = new Masker(canvas, 860, 660, aspectRatio);
 
   retryBtn.addEventListener("click", () => {
     masker.reset();

@@ -134,7 +134,7 @@ export class Masker {
    */
   draw(x: number, y: number): void {
     this.ctx.fillStyle = "rgba(0, 0, 0, 0)";
-    this.ctx.clearRect(x - 6, y - 6, 12, 12);
+    this.ctx.clearRect(x - 10, y - 10, 20, 20);
   }
 
   /**
